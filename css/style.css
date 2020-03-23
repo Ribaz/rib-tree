@@ -2,40 +2,68 @@ h1 {
     text-align: center;
 }
 
-
+/*--- Tree managements ---*/
 .rib-tree {
+    margin: 20px;
     padding: 5px;
-    background-color: #ccc;
-}
-.rib-tree-branch-element-base {
-    padding: 5px;
-}
-.rib-tree-branch-element-base a {
-    text-decoration: none;
-    color: #606060;
-    font-size: 2em;
+    border: solid 1px #aaa;
+    background-color: #fff;
+
+    font-size: 1.7em;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
 }
 .rib-tree-branch {
     margin: 5px;
 }
 .rib-tree-branch-element {
     padding: 5px;
+    padding-left: 10px;
     font-size: 1.2em;
-}
-.rib-tree-branch-element a {
-    text-decoration: none;
-    color: #666;
+    cursor: pointer;
 }
 .rib-tree-branch-element.leaf {
     border: 0px;
     color: #888;
 }
-.rib-tree-branch-toggle {
-    font-size: 1.2em;
+.rib-tree-branch-element.leaf:hover {
+    background-color: #afafaf;
+    color: #fff;
+    cursor: pointer;
 }
 .rib-tree-branch-content {
-    margin-left: 5px;
+    margin-left: 25px;
+    border-left: solid 1px #aaa;
 }
 .rib-tree-branch-content:last-child {
     border-bottom: solid 1px #aaa;
+}
+
+/* Icons: */
+/* No incon for the first element */
+.rib-tree > .rib-tree-branch > .rib-tree-branch-element:before,
+.rib-tree > .rib-tree-branch > .rib-tree-branch-element.collapsed:before {
+    content: ''; 
+}
+/* fa-folder for Folder elements and fa-folder-open for Opened Folder elements */
+.rib-tree-branch-element:before {
+    font-family: FontAwesome;
+    color: #ffd800; /* yellow */
+    content: "\f07c"; /* fa-folder-open */
+}
+.rib-tree-branch-element.collapsed:before {
+    font-family: FontAwesome;
+    color: #ffd800; /* yellow */
+    content: "\f07b"; /* fa-folder */
+}
+/* fa-file-text-o for Leaf elements */
+.rib-tree-branch-element.leaf:before,
+.rib-tree-branch-element.collapsed.leaf:before {
+    font-family: FontAwesome;
+    color: #888; /* gray */
+    content: "\f0f6 "; /* fa-file-text-o */
 }
